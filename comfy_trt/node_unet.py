@@ -109,8 +109,11 @@ class TrtUnetWrapper_Patch:
 	def patch_model(self, device_to: torch.device = None, patch_weights: bool = True) -> None:
 		if self.model.diffusion_model.engine is None:
 			self.model.diffusion_model.activate()
-
-	def unpatch_model(self, device_to: torch.device = None) -> None:
+	
+	def patch_model_lowvram(self, device_to: torch.device = None, lowvram_model_memory: int = 0) -> None:
+		self.patch_model(device_to)
+		
+	def unpatch_model(self, device_to: torch.device = None, unpatch_weights: bool = True) -> None:
 		self.model.diffusion_model.deactivate()
 
 
