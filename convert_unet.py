@@ -153,6 +153,7 @@ if __name__ == "__main__":
 				refit=True,
 				unet_hidden_dim=ckpt_config["unet_hidden_dim"],
 				lora=False,
+				controlnet=False,
 			)
 	else:
 		print("TensorRT engine found. Skipping build. You can enable Force Export in the Advanced Settings to force a rebuild if needed.")
